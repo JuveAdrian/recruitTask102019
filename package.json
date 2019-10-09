@@ -1,0 +1,27 @@
+{
+  "name": "recruittask102019",
+  "version": "1.0.0",
+  "description": "In order to get the highest possible score, all of the following requirements should be completed. Candidates are allowed to use any technology which they consider most suitable. Try to use the best UX/UI practices, feel free in design conception. Good luck!",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juveadrian/recruitTask102019.git"
+  },
+  "author": "Adrian Grabkowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juveadrian/recruitTask102019/issues"
+  },
+  "homepage": "https://github.com/juveadrian/recruitTask102019#readme"
+}
