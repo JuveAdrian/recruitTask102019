@@ -24,3 +24,41 @@ body{
 .main-container h1 {
     text-align: center;
 }
+
+.app {
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: 8%  20% auto 6%;
+}
+
+.app h1 {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: first;
+    grid-row-end: 1;
+    margin-top: 10px;
+}
+
+.app .form-container {
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-content: center;
+}
+
+.app .form-container form {
+    margin-top: 20px;
+    
+    justify-self: center;
+}
+
+.app .form-container .form-group {
+    align-items: center;
+}
+
+.app .form-container .form-group button {
+    width: 200px !important;
+}
