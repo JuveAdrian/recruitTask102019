@@ -4,6 +4,8 @@ const router = express.Router();
 
 const usersControllers = require('../controllers/users');
 
-router.use('/home', usersControllers.getIndexPage);
+router.get('/home', usersControllers.getIndexPage);
+
+router.post('/form-data', usersControllers.postFormData);
 
 module.exports = router;
