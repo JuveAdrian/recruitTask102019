@@ -7,7 +7,7 @@ exports.getIndexPage = (req, res, next) => {
 };
 
 exports.postFormData = (req, res, next) => {
-    const country = new Country(req.body.nameCountry);
+    const country = new Country(req.body.selectCountry);
     country.save();
     console.log(country.fetchAll());
     res.redirect('/home');

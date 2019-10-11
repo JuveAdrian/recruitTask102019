@@ -1,8 +1,8 @@
 let country;
 
 module.exports = class Country {
-    constructor(nameCountry){
-        this.nameCountry = nameCountry;
+    constructor(selectCountry){
+        this.selectCountry = selectCountry;
     }
 
     save() {
