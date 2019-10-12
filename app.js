@@ -2,6 +2,8 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
+
 
 const userRoutes = require('./routes/user');
 const errorRoutes = require('./routes/error');

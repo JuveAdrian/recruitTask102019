@@ -10,5 +10,6 @@ exports.postFormData = (req, res, next) => {
     const country = new Country(req.body.selectCountry);
     country.save();
     console.log(country.fetchAll());
+    country.fetchAPII();
     res.redirect('/home');
 } 
