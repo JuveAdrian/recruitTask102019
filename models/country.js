@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-
 let country;
 
 module.exports = class Country {
@@ -39,8 +38,6 @@ module.exports = class Country {
             catch(error) {
                 console.log(error);
             }
-            
-            
         }
 
         for (let i of pm25List) {
