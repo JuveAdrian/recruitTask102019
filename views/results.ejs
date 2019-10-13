@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Be+Vietnam:400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title><%- pageTitle %></title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="app">
+            <!-- <h1>Most polluted cities</h1> -->
+
+            <% for(let item from cities)  { %> 
+                      <div class="countryContainer">
+                <h1>List of 10 most polluted Cities:</h1>  
+
+                <div class="countryElement">
+                    <h3><%= item.city %></h3>
+                    <hr />
+                    <p>Miasto na prawach powiatu w południowo-zachodniej Polsce, siedziba władz województwa dolnośląskiego i powiatu wrocławskiego. Położone w Europie Środkowej, na Nizinie Śląskiej, nad Odrą i czterema jej dopływami. Jest historyczną stolicą Dolnego Śląska, a także całego Śląska.</p>
+                </div>
+            <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="js/autocomplet.js">
+</script>
+</body>
+</html>

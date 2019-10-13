@@ -11,5 +11,17 @@ exports.postFormData = (req, res, next) => {
     country.save();
     console.log(country.fetchAll());
     country.fetchAPII();
-    res.redirect('/home');
+   
+   
+    res.redirect('/results');
 } 
+
+exports.getResults = (req, res, next) => {
+        //const cities = Country.displayAPI;
+        //console.log(cities);
+        console.log('halo');
+        //res.render('results', {
+        //    cities: cities
+        //});   
+    
+}
