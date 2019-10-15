@@ -14,15 +14,15 @@ module.exports = class Country {
     fetchAll() {
         return country;
     }
-
-    fetchAPII() {
+    
+   /* fetchAPII() {
         const url = `https://api.openaq.org/v1/latest?country=${country.selectCountry}&limit=1000&parameter=pm25`;
 
         fetch(url).then((response) => {
             if (response.status === 200) {
                 return response.json()
             } else {
-                throw new Error('Unable to fetch the puzzle');
+                throw new Error('Unable to fetch the data');
             }
         }).then((data) => {
             let cities = data.results;
@@ -34,19 +34,12 @@ module.exports = class Country {
                     pmList.push(cities[i].city);
             }
             return pmList;
-        }).catch((error) => {
-            console.log(error);
-        });        
-    };   
+        }).then((pmList) => {
 
-    displayAPI() {
-        //console.log(JSON.parse(pmList));
-        JSON.parse(pmList);
-        for(let i=0; i<10; i++) {
-            JSON.parse(pmList[i]);
-            console.log(`From displayAPI() ${pmList[i]}`);
-        }
-        return pmList;
-    }
-        
+            console.log(pmList.body);
+        }).catch((error) => {
+            console.log(`gagagag + ${error}`);
+        });
+               
+    }; */    
 };

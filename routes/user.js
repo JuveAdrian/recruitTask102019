@@ -8,6 +8,9 @@ router.get('/home', usersControllers.getIndexPage);
 
 router.post('/form-data', usersControllers.postFormData);
 
-router.get('/results', usersControllers.getResults);
+router.get('/form-data', (req, res, next) => {
+
+    console.log('getformdata');
+});
 
 module.exports = router;
