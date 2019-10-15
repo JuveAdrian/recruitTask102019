@@ -17,18 +17,23 @@
            
            
                       <div class="countryContainer">
+                          <%- country.selectCountry %>
                 <h1>List of 10 most polluted Cities:</h1>  
-                <% for(let i=0; i<10; i++) { %>
-                        <li><%- data[i].city %></li>
-                    
+                <% for(let i=0; i<12; i++) { %>
+                        <% if (country.selectCountry === "DE" || country.selectCountry == "ES") { %>
+                            <li value="<%- data[i].city %>"><%- data[i].location %></li>
+                        <% } else { %>    
+                            <li value="<%- data[i].city %>">dupa<%- data[i].city %></li>
+                        <% } %>    
+                        <p id="opis-<%- data[i].city %>"></p>
                     <% } %>
                 
-           
+                    
             </div>
         </div>
     </div>
-    <script src="fetchapi.js">
-        
+    <script>
+       
     </script>
 </script>
 </body>
