@@ -32,11 +32,12 @@ exports.postFormData = (req, res, next) => {
             urlWikiApi = `https://pl.wikipedia.org/w/api.php?action=opensearch&format=json&search=${item.city}`;
             const fetchdate = fetch(urlWikiApi).then((response) => {
                 if (response.status === 200) {
-                    return response.json()
+                    return response.json();
                 } else {
                     throw new Error('Unable to fetch the data');
                 }
             }).then((data) => {
+                console.log(data);
                 let temp = data[2][0]
                return ( temp );
                 
@@ -48,10 +49,9 @@ exports.postFormData = (req, res, next) => {
             
             citiesArr.push({ name: item.city, value: item.measurements[0].value, desc: fetchdate} );
         }
-        
-        
-        console.log(citiesArr);
 
+        console.log(citiesArr);
+        
         res.render('results', {
             status: 'udalosiewyswietlic',
             country: data.selectCountry,

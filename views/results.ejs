@@ -11,29 +11,45 @@
 </head>
 <body>
     <div class="main-container">
+            <div class="app">
+                    <h1>List of 10 most polluted Cities:</h1>
+                    <div class="container">
+                            <table class="table table-condensed"  id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="panel">
+                            <% for(let j=0; j<12; j++) { %>
+                                <tr data-toggle="collapse" data-target="#demo1" data-parent="#myTable">
+                                    <td><%- j %></td>
+                                    <% if (country === "DE" || country == "ES") { %>
+                                    <td><%- cities[j].name %></td>
+                                    <% } else { %>
+                                    <td><%- cities[j].name %></td>
+                                    <% } %>
+                                </tr>
+                                <tr id="demo1" class="collapse">
+                                    <td colspan="6" class="hiddenRow"><div>Demo1</div> </td>
+                                </tr>
+                            <% } %>   
+                            </tbody>
+                        </table>
+                        </div>
         <div class="app">
             
             <!-- <h1>Most polluted cities</h1> -->
            
            
-                      <div class="countryContainer"
-                <h1>List of 10 most polluted Cities:</h1>  
-                <% for(let i=0; i<12; i++) { %>
-                        <% if (country === "DE" || country == "ES") { %>
-                            <li value="<%- cities[i].name %>"><%- cities[i].name %></li>
-                        <% } else { %>    
-                            <li value="<%- cities[i].name %>"><%- cities[i].name %></li>
-                        <% } %>    
-                        <p id="opis-<%- cities[i].name %>"><%- cities[i].desc %></p>
-                    <% } %>
-                
-                    
-            </div>
+                      
         </div>
     </div>
     <script>
        
     </script>
 </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </body>
 </html>
