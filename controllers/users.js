@@ -23,13 +23,40 @@ exports.postFormData = (req, res, next) => {
         }
     }).then((data) => {
         let cities = data.results;
-        let citiesArr = [];
+        const citiesArr = [];
         cities.sort((a, b) => (a.measurements[0].value > b.measurements[0].value) ? -1 : 1);
 
-        for(let item of cities)
-        citiesArr.push({ name: item.city, value: item.measurements[0].value} );
+        let urlWikiApi = `https://pl.wikipedia.org/w/api.php?action=opensearch&format=json&search=`;
+        
+        for(let item of cities){
+            urlWikiApi = `https://pl.wikipedia.org/w/api.php?action=opensearch&format=json&search=${item.city}`;
+            const fetchdate = fetch(urlWikiApi).then((response) => {
+                if (response.status === 200) {
+                    return response.json()
+                } else {
+                    throw new Error('Unable to fetch the data');
+                }
+            }).then((data) => {
+                let temp = data[2][0]
+               return ( temp );
+                
+            }).catch((err) => {
+                if(err) {
+                    console.log('Blad pobierania opisu');
+                }
+            });
+            
+            citiesArr.push({ name: item.city, value: item.measurements[0].value, desc: fetchdate} );
+        }
+        
         
         console.log(citiesArr);
+
+        res.render('results', {
+            status: 'udalosiewyswietlic',
+            country: data.selectCountry,
+            cities: citiesArr
+        });
         
         return cities;
     }).then((apidata) => {
@@ -67,8 +94,6 @@ exports.postFormData = (req, res, next) => {
                     console.log(`OPIS - ${data[2][0]}`);
                 }
                 
-                
-                
             }).catch((err) => {
                 if(err) {
                     console.log('Blad pobierania opisu');
@@ -76,12 +101,14 @@ exports.postFormData = (req, res, next) => {
             });
             
         }
+       
+       /*
         res.render('results', {
             status: 'udalosiewyswietlic',
             country: data.selectCountry,
             data: apidata,
             country: country
         });
-        
+        */
     });
 };

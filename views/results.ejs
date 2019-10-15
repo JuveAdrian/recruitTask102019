@@ -16,16 +16,15 @@
             <!-- <h1>Most polluted cities</h1> -->
            
            
-                      <div class="countryContainer">
-                          <%- country.selectCountry %>
+                      <div class="countryContainer"
                 <h1>List of 10 most polluted Cities:</h1>  
                 <% for(let i=0; i<12; i++) { %>
-                        <% if (country.selectCountry === "DE" || country.selectCountry == "ES") { %>
-                            <li value="<%- data[i].city %>"><%- data[i].location %></li>
+                        <% if (country === "DE" || country == "ES") { %>
+                            <li value="<%- cities[i].name %>"><%- cities[i].name %></li>
                         <% } else { %>    
-                            <li value="<%- data[i].city %>">dupa<%- data[i].city %></li>
+                            <li value="<%- cities[i].name %>"><%- cities[i].name %></li>
                         <% } %>    
-                        <p id="opis-<%- data[i].city %>"></p>
+                        <p id="opis-<%- cities[i].name %>"><%- cities[i].desc %></p>
                     <% } %>
                 
                     
