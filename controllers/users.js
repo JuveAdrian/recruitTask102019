@@ -37,7 +37,7 @@ exports.postFormData = (req, res, next) => {
                     throw new Error('Unable to fetch the data');
                 }
             }).then((data) => {
-                console.log(data);
+                //console.log(data);
                 let temp = data[2][0]
                return ( temp );
                 

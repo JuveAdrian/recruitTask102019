@@ -1,0 +1,8 @@
+1. Pobrać miasta, posortować od najbardziej zanieczyszczonych do najmniej, 
+    Odfiltrować duplikaty, zapisac 10 miast w tablicy za pomoca dlugosci i szerokości geograficznej
+
+2. Za pomocą node-geocoder wyciagnac liste 10 nazw miast
+
+3. Pobrac z wiki API opisy miast 
+
+4. Wysietlic wszystko
