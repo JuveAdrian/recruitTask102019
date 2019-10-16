@@ -42,30 +42,48 @@ exports.postFormData = (req, res, next) => {
             for(let item of cities){            
                 citiesArr.push({ name: item.city, coordinates: item.coordinates, value: item.measurements[0].value } );
             }
-           console.log(citiesArr);
+           //console.log(citiesArr);
 
             let tabelaMiast = [];
             for(let i=0; i<12; i++){
-                console.log({lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude})
-                geocoder.reverse({lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude}, function(err, data) {
-                        console.log(data[0].city)
-                        fetch(`${urlWikiApi} + ${data[0].city}`).then((response) => {
+                console.log({lat: cities[i].coordinates.latitude, lon: cities[i].coordinates.longitude})
+                geocoder.reverse({lat: cities[i].coordinates.latitude, lon: cities[i].coordinates.longitude}, function(err, data) {
+                        console.log(`${urlWikiApi+data[0].city}`)
+                        fetch(`${urlWikiApi+data[0].city}`).then((response) => {
                             if (response.status === 200) {
-                                return response.json();
+                                return response.json() ;
                             } else {
                                 throw new Error('Unable to fetch the data');
                             }
                         }).then((datawiki) => {
-                            setTimeout((tabelaMiast.push({name: data[0].city, desc: datawiki[2][0]})), 1000); 
+                            tabelaMiast.push({name: data[0].city, value: cities[i].measurements[0].value, lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude, desc: datawiki[2][0]}); 
+                        
                         }).catch((err) => {
-                            console.log('err');
+                            console.log(err);
                         });
                 });
+            
+
             }
+           
+            
+
+            function myFunction1() {
+                setTimeout(function(){
+                      
+                    tabelaMiast.sort((a, b) => (a.value > b.value) ? -1 : 1);
+                     
+                    }, 3000);
+              }
+
+            myFunction1();
+
+
+            console.log(tabelaMiast);
             function myFunction() {
                 setTimeout(function(){
                       console.log(tabelaMiast) 
-
+                        
                       console.log(`1 - ${tabelaMiast[0].name}`)
                       res.render('results', {
                         status: 'udalosiewyswietlic',
