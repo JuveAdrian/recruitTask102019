@@ -8,6 +8,7 @@
     "cheerio": "^1.0.0-rc.3",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "geocoder": "^0.2.3",
     "node-fetch": "^2.6.0",
     "node-geocoder": "^3.24.0"
   },

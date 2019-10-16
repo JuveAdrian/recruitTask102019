@@ -18,18 +18,17 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Date</th>
+                                    <th>City</th>
+                                    <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody class="panel">
-                            <% for(let j=0; j<12; j++) { %>
+                            <% for(let j=0; j<10; j++) { %>
                                 <tr data-toggle="collapse" data-target="#demo1" data-parent="#myTable">
-                                    <td><%- j %></td>
-                                    <% if (country === "DE" || country == "ES") { %>
-                                    <td><%- cities[j].name %></td>
-                                    <% } else { %>
-                                    <td><%- cities[j].name %></td>
-                                    <% } %>
+                                    <td><%- a = j+1 %></td>
+                                   
+                                    <td><%- cities[j].name; %></td>
+                                    <td><%- cities[j].desc; %></td>
                                 </tr>
                                 <tr id="demo1" class="collapse">
                                     <td colspan="6" class="hiddenRow"><div>Demo1</div> </td>
