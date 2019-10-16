@@ -37,17 +37,18 @@ exports.postFormData = (req, res, next) => {
             
             //console.log(cities);
 
-            let urlWikiApi = `https://pl.wikipedia.org/w/api.php?action=opensearch&format=json&search=`;
+            let urlWikiApi = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=`;
             
             for(let item of cities){            
                 citiesArr.push({ name: item.city, coordinates: item.coordinates, value: item.measurements[0].value } );
             }
-           //console.log(citiesArr);
+           console.log(citiesArr);
 
             let tabelaMiast = [];
             for(let i=0; i<12; i++){
+                console.log({lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude})
                 geocoder.reverse({lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude}, function(err, data) {
-                    if(citiesArr){
+                        console.log(data[0].city)
                         fetch(`${urlWikiApi} + ${data[0].city}`).then((response) => {
                             if (response.status === 200) {
                                 return response.json();
@@ -55,12 +56,10 @@ exports.postFormData = (req, res, next) => {
                                 throw new Error('Unable to fetch the data');
                             }
                         }).then((datawiki) => {
-                            tabelaMiast.push({name: data[0].city, desc: datawiki[2][0]});
+                            setTimeout((tabelaMiast.push({name: data[0].city, desc: datawiki[2][0]})), 1000); 
+                        }).catch((err) => {
+                            console.log('err');
                         });
-                        
-                    } else {
-                        console.log('brak wspolrzednych');
-                    }
                 });
             }
             function myFunction() {
@@ -70,9 +69,10 @@ exports.postFormData = (req, res, next) => {
                       console.log(`1 - ${tabelaMiast[0].name}`)
                       res.render('results', {
                         status: 'udalosiewyswietlic',
-                        cities: tabelaMiast
+                        cities: tabelaMiast,
+                        value: cities
                     });
-                    }, 1000);
+                    }, 3000);
               }
 
             myFunction(); 
@@ -81,6 +81,8 @@ exports.postFormData = (req, res, next) => {
                 cities: names
             }); */
 
+        }).catch((err) => {
+            console.log(err);
         });
 
     

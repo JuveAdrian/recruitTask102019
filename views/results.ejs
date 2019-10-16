@@ -19,6 +19,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>City</th>
+                                    <th>Value</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -28,6 +31,9 @@
                                     <td><%- a = j+1 %></td>
                                    
                                     <td><%- cities[j].name; %></td>
+                                    <td><%- value[j].measurements[0].value %></td>
+                                    <td><%- value[j].coordinates.latitude %></td>
+                                    <td><%- value[j].coordinates.longitude %></td>
                                     <td><%- cities[j].desc; %></td>
                                 </tr>
                                 <tr id="demo1" class="collapse">
