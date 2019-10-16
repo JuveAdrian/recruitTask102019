@@ -65,8 +65,6 @@ exports.postFormData = (req, res, next) => {
             
 
             }
-           
-            
 
             function myFunction1() {
                 setTimeout(function(){
@@ -74,10 +72,9 @@ exports.postFormData = (req, res, next) => {
                     tabelaMiast.sort((a, b) => (a.value > b.value) ? -1 : 1);
                      
                     }, 3000);
-              }
+            }
 
             myFunction1();
-
 
             console.log(tabelaMiast);
             function myFunction() {
@@ -94,44 +91,8 @@ exports.postFormData = (req, res, next) => {
               }
 
             myFunction(); 
-            /* res.render('results', {
-                status: 'udalosiewyswietlic',
-                cities: names
-            }); */
 
         }).catch((err) => {
             console.log(err);
-        });
-
-    
+        });    
 };
-
-/* 
-res.render('results', {
-    status: 'udalosiewyswietlic',
-    country: data.selectCountry,
-    cities: citiesArr
-});
- */
-
-
-/* let urlWikiApi = `https://pl.wikipedia.org/w/api.php?action=opensearch&format=json&search=`;
-        
-for(let item of cities){
-    urlWikiApi = `https://pl.wikipedia.org/w/api.php?action=opensearch&format=json&search=${item.city}`;
-    const fetchdate = fetch(urlWikiApi).then((response) => {
-        if (response.status === 200) {
-            return response.json();
-        } else {
-            throw new Error('Unable to fetch the data');
-        }
-    }).then((data) => {
-        //console.log(data);
-        let temp = data[2][0]
-       return ( temp );
-        
-    }).catch((err) => {
-        if(err) {
-            console.log('Blad pobierania opisu');
-        }
-    }); */
