@@ -6,3 +6,30 @@ input{
     width: 300px;
     align-items: center;
 }
+
+.form-container {
+    height: 100vh;
+    position: relative;
+    font-size: 1.5em;
+}
+
+.form-container form {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  input{
+      width: 300px;
+      height: 60px;
+      border: 1px #134123 solid;
+      font-size: 1.4em;
+      margin-top: 
+  }
+
+  button{
+    width: 300px;
+    font-size: 2em;
+  }

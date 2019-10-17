@@ -28,16 +28,24 @@
                             </thead>
                             <tbody class="panel">
                             <% for(let j=0; j<10; j++) { %>
-                                <tr data-toggle="collapse" data-target="#<%- cities[j].desc; %>" data-parent="#myTable">
+                                <tr data-toggle="collapse" data-target="#<%- cities[j].desc + j; %>" data-parent="#myTable">
                                     <td><%- a = j+1 %></td>
                                     <td><%- cities[j].name; %></td>
                                     <td><%- value[j].measurements[0].value %></td>
                                     <td><%- value[j].coordinates.latitude %></td>
                                     <td><%- value[j].coordinates.longitude %></td>
-                                    <td><%- //cities[j].desc; %></td>
+                                    <td>   
+                                        <%- //cities[j].desc; %>
+                                    </td>
                                 </tr>
-                                <tr id="<%- cities[j].desc; %>" class="collapse">
-                                    <td colspan="5" class="hiddenRow"><div><%- cities[j].desc; %></div> </td>
+                                <tr id="<%- cities[j].desc + j; %>" class="collapse">
+                                    <td colspan="5" class="hiddenRow"><div>
+                                            <% if (cities[j].desc == ' ') { %>
+                                                    <%- msg %>
+                                                <% } else { %>
+                                                <%- cities[j].desc; %>
+                                            <% } %>   
+                                    </div> </td>
                                 </tr>
                             <% } %>   
                             </tbody>

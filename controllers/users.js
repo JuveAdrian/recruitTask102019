@@ -56,7 +56,11 @@ exports.postFormData = (req, res, next) => {
                                 throw new Error('Unable to fetch the data');
                             }
                         }).then((datawiki) => {
-                            tabelaMiast.push({name: data[0].city, value: cities[i].measurements[0].value, lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude, desc: datawiki[2][0]}); 
+                            if (datawiki[2][0]) {
+                                tabelaMiast.push({name: data[0].city, value: cities[i].measurements[0].value, lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude, desc: datawiki[2][0]});     
+                            } else {
+                                tabelaMiast.push({name: data[0].city, value: cities[i].measurements[0].value, lat: citiesArr[i].coordinates.latitude, lon: citiesArr[i].coordinates.longitude, desc: 'No description'});
+                            }
                         
                         }).catch((err) => {
                             console.log(err);
@@ -86,7 +90,8 @@ exports.postFormData = (req, res, next) => {
                         status: 'udalosiewyswietlic',
                         cities: tabelaMiast,
                         value: cities,
-                        country: country.selectCountry
+                        country: country.selectCountry,
+                        msg: 'description download error'
                     });
                     }, 3000);
               }

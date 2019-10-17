@@ -15,8 +15,9 @@
             <!-- <h1>Most polluted cities</h1> -->
 
             <div class="form-container">
-                <form action="/form-data" method="POST">
-                    <label for="select-country">Country:</label>
+                <form action="/form-data" method="POST" name="countryname"  onsubmit="return validateForm()">
+                    <label for="select-country">Type Country:</label>
+                    <br />
                         <input list="countries" id="select-country" name="selectCountry"  />
 
                         <datalist id="countries">
@@ -25,7 +26,8 @@
                             <option value="ES">Spain</option>
                             <option value="FR">France</option>
                         </datalist>
-                        <button type="submit" class="btn btn-primary" id="submit-btn" >Submit</button>
+                        <br />
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
                     
                 </form>
             </div>
@@ -35,6 +37,9 @@
         </div>
     </div>
     <script src="js/autocomplet.js">
-</script>
+
+
+
+    </script>
 </body>
 </html>
