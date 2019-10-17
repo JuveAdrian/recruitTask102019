@@ -1,5 +1,11 @@
 # recruitTask102019
 
+## HOW TO RUN APP
+
+### download repo
+### npm install
+### npm start
+
 ## Front-end recruitment task
 
 In order to get the highest possible score, all of the following requirements should be completed. Candidates are allowed to use any technology which they consider most suitable. Try to use the best UX/UI practices, feel free in design conception. Good luck!
