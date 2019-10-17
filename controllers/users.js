@@ -85,7 +85,8 @@ exports.postFormData = (req, res, next) => {
                       res.render('results', {
                         status: 'udalosiewyswietlic',
                         cities: tabelaMiast,
-                        value: cities
+                        value: cities,
+                        country: country.selectCountry
                     });
                     }, 3000);
               }
