@@ -9,7 +9,7 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "geocoder": "^0.2.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "node-geocoder": "^3.24.0"
   },
   "devDependencies": {
